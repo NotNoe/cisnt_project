@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField]
     private GameObject PauseCanvas;
+    [SerializeField]
+    private GameObject MainCanvas;
     private TMP_Text Clock;
 
     // Start is called before the first frame update
@@ -31,9 +33,11 @@ public class GameManager : MonoBehaviour
         if(Time.timeScale != 0){
             Time.timeScale = 0;
             PauseCanvas.SetActive(true);
+            MainCanvas.SetActive(false);
         }else{
             Time.timeScale = 1;
             PauseCanvas.SetActive(false);
+            MainCanvas.SetActive(true);
         }
     }
 
