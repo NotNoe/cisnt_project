@@ -1,12 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance { get; private set; }
+    [SerializeField]
     private GameObject PauseCanvas;
+    private TMP_Text Clock;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,8 +23,8 @@ public class GameManager : MonoBehaviour
         }
     }
     void Start(){
-        PauseCanvas = GameObject.Find("PauseCanvas");
-        PauseCanvas.SetActive(false);
+        Clock = GameObject.Find("Canvas/Clock/Time").GetComponent<TMP_Text>();
+        Clock.text = "00:00";
     }
 
     public void Pause(){
@@ -30,5 +35,9 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             PauseCanvas.SetActive(false);
         }
+    }
+
+    public void ChangeTime(string time){
+        Clock.text = time;
     }
 }
