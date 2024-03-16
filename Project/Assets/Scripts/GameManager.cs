@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     void StartLvl(){
         n_paciente = 0;
         time = H_INI;
+        UpdateTime();
         paciente.SetActive(true);
         SiguientePaciente();
     }
