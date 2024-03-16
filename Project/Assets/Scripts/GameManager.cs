@@ -12,21 +12,18 @@ public class GameManager : MonoBehaviour
     private System.Random rnd;
     private string[] niveles =  {"Assets\\Pacientes\\level1.txt"};
     private Paciente[] pacientes;
-    private Paciente paciente_actual;
+    public Paciente paciente_actual;
     private int nivel_actual = 0;
     private int n_paciente = 0;
     public static GameManager Instance { get; private set; }
     [SerializeField]
     private GameObject PauseCanvas;
-    [SerializeField]
     private GameObject MainCanvas;
-    [SerializeField]
     private ConversationGenerator conv;
     private TMP_Text Clock;
     private int time = 540; //9am
     [SerializeField]
     private Sprite[] sprites;
-    [SerializeField]
     private GameObject paciente;
     private SpriteRenderer paciente_rer;
 
@@ -40,8 +37,12 @@ public class GameManager : MonoBehaviour
         }
     }
     void Start(){
+        MainCanvas = GameObject.Find("GameCanvas");
         rnd = new System.Random();
+        conv = MainCanvas.GetComponentInChildren<ConversationGenerator>();
         Clock = GameObject.Find("GameCanvas/Clock/Time").GetComponent<TMP_Text>();
+        paciente = GameObject.Find("Patient");
+        paciente.SetActive(false);
         paciente_rer = paciente.GetComponent<SpriteRenderer>();
         UpdateTime();
         CargaNivel();

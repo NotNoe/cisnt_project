@@ -18,10 +18,10 @@ public class ConversationGenerator : MonoBehaviour
 
 
     private double time;
-    private TMP_Text[] options = { null, null, null, null };
-    private GameObject[] buttons = { null, null, null, null };
+    private TMP_Text[] options = new TMP_Text[4];
+    private GameObject[] buttons = new GameObject[4];
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _dialog = GetComponentInChildren<TMP_Text>();
         option1 = GameObject.Find("Option1").GetComponent<TMP_Text>();

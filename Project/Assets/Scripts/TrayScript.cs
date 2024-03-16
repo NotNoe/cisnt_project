@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class TrayScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject number;
-    [SerializeField]
-    private GameObject background;
     private SpriteRenderer number_rer;
     private SpriteRenderer back_rer;
     [SerializeField]
@@ -21,8 +17,8 @@ public class TrayScript : MonoBehaviour
     private int papers = 0;
     void Start()
     {
-        number_rer = number.GetComponent<SpriteRenderer>();
-        back_rer = background.GetComponent<SpriteRenderer>();
+        back_rer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        number_rer = gameObject.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         number_rer.sprite = number_sprites[0];
         back_rer.sprite = empty_tray;
 
