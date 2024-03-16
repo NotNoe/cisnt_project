@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,11 @@ public class GameManager : MonoBehaviour
 {
 
     private System.Random rnd;
+    private const int H_INI = 540; //9 a.m.
+    private const int H_FIN = 1020; //5 p.m.
     private string[] niveles =  {"Assets\\Pacientes\\level1.txt"};
     private Paciente[] pacientes;
-    public Paciente paciente_actual;
+    private Paciente paciente_actual;
     private int nivel_actual = 0;
     private int n_paciente = 0;
     public static GameManager Instance { get; private set; }
@@ -50,11 +53,12 @@ public class GameManager : MonoBehaviour
 
     void StartLvl(){
         n_paciente = 0;
+        time = H_INI;
         paciente.SetActive(true);
         SiguientePaciente();
     }
     private void SiguientePaciente(){ //Llama al siguiente y lo inicia
-        if(n_paciente == pacientes.Length){
+        if(n_paciente == pacientes.Length || time >= H_FIN){
             EndLvl();
             return;
         }
@@ -66,6 +70,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void SelectOption(int n){
+        this.time += paciente_actual.getTimes()[n];
+        UpdateTime();
         paciente_actual.selectAnswer(n);
         if(paciente_actual.hasEnded()){
             SiguientePaciente();
