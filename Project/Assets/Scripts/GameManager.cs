@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private Paciente paciente_actual;
     private int nivel_actual = 0;
     private int n_paciente = 0;
+    public int nivel_jugador = 0;
     public static GameManager Instance { get; private set; }
     [SerializeField]
     private GameObject PauseCanvas;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConversationGenerator : MonoBehaviour
 {
@@ -55,15 +56,19 @@ public class ConversationGenerator : MonoBehaviour
     {
         _dialog.text = dialog;
     }
-    public void GenerateOptions(string[] treatments)
+    public void GenerateOptions(string[] treatments, int[] time, int[] level)
     {
         for(int i = 0; i < 4; i++){
             buttons[i].SetActive(false);
         }
         for(int i = 0; i < treatments.Length; i++)
         {
-            options[i].text = treatments[i];
+            options[i].text = treatments[i] + "          " + time[i] + " minutes" + "             " + level[i];
             buttons[i].SetActive(true);
+            if (level[i] > GameManager.Instance.nivel_jugador)
+            {
+                buttons[i].GetComponent<Button>().interactable = false;
+            }
         }
     }
     public void OnButton1()
