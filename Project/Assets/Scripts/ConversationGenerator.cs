@@ -57,11 +57,13 @@ public class ConversationGenerator : MonoBehaviour
     }
     public void GenerateOptions(string[] treatments)
     {
+        for(int i = 0; i < 4; i++){
+            buttons[i].SetActive(false);
+        }
         for(int i = 0; i < treatments.Length; i++)
         {
             options[i].text = treatments[i];
-            if (treatments[i] == " ") buttons[i].SetActive(false);
-            else buttons[i].SetActive(true);
+            buttons[i].SetActive(true);
         }
     }
 }

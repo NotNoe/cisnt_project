@@ -3,14 +3,21 @@ public class DialogTree{
 
     public string pregunta;
     public int n;
-    public string[] respuestas = {"","","",""};
-    public DialogTree[] hijos = {null, null, null, null};
-    public int[] limitaciones = {0,0,0,0};
-    public int[] tiempo = {0,0,0,0};
+    public string[] respuestas;
+    public DialogTree[] hijos;
+    public int[] limitaciones;
+    public int[] tiempo;
 
 
     public DialogTree(string pregunta){
         this.pregunta = pregunta;
+    }
+    public void init_arrays(int n){
+        this.n = n;
+        this.respuestas = new string[n];
+        this.hijos = new DialogTree[n];
+        this.limitaciones = new int[n];
+        this.tiempo = new int[n];
     }
 
 }
