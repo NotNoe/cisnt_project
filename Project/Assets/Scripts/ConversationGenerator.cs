@@ -66,4 +66,22 @@ public class ConversationGenerator : MonoBehaviour
             buttons[i].SetActive(true);
         }
     }
+    public void OnButton1()
+    {
+        GameManager.Instance.SelectOption(0);
+    } 
+    public void OnButton2()
+    {
+        GameManager.Instance.SelectOption(1);
+    }
+    public void OnButton3()
+    {
+        GameManager.Instance.SelectOption(2);
+    }
+    public void OnButton4()
+    {
+        GameManager.Instance.SelectOption(3);
+    }
+
+
 }
