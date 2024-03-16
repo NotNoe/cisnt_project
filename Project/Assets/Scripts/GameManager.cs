@@ -5,6 +5,7 @@ using System.IO;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +14,8 @@ public class GameManager : MonoBehaviour
     private System.Random rnd;
     private const int H_INI = 540; //9 a.m.
     private const int H_FIN = 1020; //5 p.m.
-    private string[] niveles =  {"Assets\\Pacientes\\level1.txt"};
+    [SerializeField]
+    private string[] niveles;
     private Paciente[] pacientes;
     private Paciente paciente_actual;
     private int nivel_actual = 0;
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
         n_paciente++;
         paciente_rer.sprite = sprites[rnd.Next(sprites.Length)];
         conv.ChangeDialog(paciente_actual.getDialog());
-        conv.GenerateOptions(paciente_actual.getAnswers());
+        conv.GenerateOptions(paciente_actual.getAnswers(), paciente_actual.getTimes(), paciente_actual.getLimitations());
     }
 
     public void SelectOption(int n){
@@ -79,12 +81,13 @@ public class GameManager : MonoBehaviour
             return;
         }
         conv.ChangeDialog(paciente_actual.getDialog());
-        conv.GenerateOptions(paciente_actual.getAnswers());
+        conv.GenerateOptions(paciente_actual.getAnswers(), paciente_actual.getTimes(), paciente_actual.getLimitations());
     }
     void EndLvl(){
         paciente.SetActive(false);
         Debug.Log("Nivel terminado\n");
         nivel_actual++;
+        CargaNivel();
     }
 
     void CargaNivel(){
@@ -123,5 +126,6 @@ public class GameManager : MonoBehaviour
 
     public void TerminaJuego(){
         Debug.Log("Termino el juego\n");
+        SceneManager.LoadScene("MainMenu");
     }
 }
