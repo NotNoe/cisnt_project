@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject MainCanvas;
     private TMP_Text Clock;
+    private int time = 540; //9am
 
     // Start is called before the first frame update
     void Awake()
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     }
     void Start(){
         Clock = GameObject.Find("Canvas/Clock/Time").GetComponent<TMP_Text>();
-        Clock.text = "00:00";
+        UpdateTime();
     }
 
     public void Pause(){
@@ -41,7 +42,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeTime(string time){
-        Clock.text = time;
+    public void UpdateTime(){
+        int h = time / 60;
+        int m = time % 60;
+        Clock.text = h.ToString() + ":" + m.ToString();
+        
     }
 }
