@@ -1,10 +1,10 @@
 Hola, mi barriga me duele muchísimo durante mis reglas, hasta el punto que me he desmayado.
 3
 Mandarle a su casa & 0 & 30
-O, perdón por hacerte perder el tiempo
+O, perdón por hacerte perder el tiempo & 0
 0
 Pastillas anticonceptivo & 3 & 60
-Vale, gracias supongo 
+Vale, gracias supongo  & 0
 0
 Hacer una ecografía & 0 & 120
 Se ha encontrado células creciedno en un sitio inesperado en la parte exterior al útero
@@ -13,9 +13,11 @@ Hacer un test para ver si es cáncer & 1 & 60
 No lo es, se ha confirmado que es endiometrosis
 1
 Tratar & 0 & 30
-¡Muchísimas gracias! 
+¡Muchísimas gracias!  & 1
 0
 Confiar que no es nada serio & 0 & 30
-Vale, gracias por tu ayuda supongo
+Vale, gracias por tu ayuda supongo  & 0
 0
+El paciente sigue con su tratamento y sus síntomas han mejorado mucho
+El endiometrosis que padecía el paciente le ha obligado a quedarse en casa y dejar el trabajo
 

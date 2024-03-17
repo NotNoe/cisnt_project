@@ -1,21 +1,23 @@
 Hola buenas, me duele la cabeza bastante
 3
 Mandarle a su casa & 0 & 30
-Perdón por molestar
+Perdón por molestar  & 0
 0
 Hacer un TAC & 1 & 90
 Hay un tumor, no se sabe si es cancerígeno
 2
 Darle pastilla de dolor de cabeza & 0 & 30
-Gracias, supongo
+Gracias, supongo  & 0
 0
 Confirmar si es cancerígeno & 1 & 60
 Lo es, hay que operar.
 2
 Operar & 2 & 120
-¡Gracias, me has salvado la vida!
+¡Gracias, me has salvado la vida!  & 1
 0
 Mandarle a su casa & 0 & 30
-¿En serio?
+¿En serio?  & 0
 0
+El paciente se curó :)
+El tumor acabó matando al paciente
 

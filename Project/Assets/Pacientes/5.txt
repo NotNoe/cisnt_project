@@ -1,18 +1,20 @@
 Hola buenas, necesito apoyo psicológico
 3
 Mandarle a su casa & 0 & 30
-O, necesitaba ayuda
+O, necesitaba ayuda  & 0
 0
 Hacer una evaluación psicológica & 1 & 90
 Tiene tendencias suicidas y necesita terapia
 2
 Mandarle a terapia & 1 & 60
-¡Gracias!
+¡Gracias!  & 1
 0
 Mandarle a su casa & 0 & 30
-O, necesitaba ayuda
+O, necesitaba ayuda  & 0
 0
 Darle antidepresivos & 0 & 60
-Estos no valen para nada
+Estos no valen para nada  & 0
 0
+El paciente mejoró mucho en terapia
+El paciente se suicidó
 
