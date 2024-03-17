@@ -13,8 +13,9 @@ Hacer un test para ver si es cáncer & 1 & 60
 No lo es, se ha confirmado que es endiometrosis
 1
 Tratar & 0 & 30
-¡Muchísimas gracias!
-Confiar que no es nada serio & 0 & 15
+¡Muchísimas gracias! 
+0
+Confiar que no es nada serio & 0 & 30
 Vale, gracias por tu ayuda supongo
 0
 
