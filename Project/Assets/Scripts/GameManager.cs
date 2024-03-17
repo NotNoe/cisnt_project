@@ -117,11 +117,7 @@ public class GameManager : MonoBehaviour
         paciente.SetActive(false);
         Debug.Log("Nivel terminado\n");
         if(pacientes_terminados < RED_LIMIT){
-            if(nivel_jugador == 0){
-                TerminaJuego();
-            }else{
-                nivel_jugador--;
-            }
+            nivel_jugador--;
         }else if(pacientes_terminados >= YELLOW_LIMIT){
             nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
         }
@@ -133,7 +129,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void CargaNivel(){
-        if(this.nivel_actual >= this.niveles.Length){
+        if(this.nivel_actual >= this.niveles.Length || nivel_jugador < 0){
             TerminaJuego();
             return;
         }
@@ -169,18 +165,19 @@ public class GameManager : MonoBehaviour
         Clock.text = h.ToString("D2") + ":" + m.ToString("D2");
     }
 
-
-    private void fired(){
-        MainCanvas.SetActive(true);
-        paciente.SetActive(true);
-        PauseCanvas.SetActive(false);
-        canvas_despido.SetActive(true);
-    }
-    public void TerminaJuego(){
+    public void TerminaJuego(){ //Se llama al terminar el juego, ya sea por una cosa o por la otra
         Debug.Log("Termino el juego\n");
         MainCanvas.SetActive(true);
         paciente.SetActive(true);
         PauseCanvas.SetActive(false);
+        if(nivel_jugador < 0){
+            canvas_despido.SetActive(true);
+        }else{
+            gameOver();   
+        }
+    }
+
+    public void gameOver(){
         SceneManager.LoadScene("GameOver");
     }
     public void Quit(){
