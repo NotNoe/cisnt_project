@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d8251df3-8b4b-4a3c-9aae-c34f655abe95}">
+		<property name="assetPath">
+			<value>clock-alarm-8761 - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09b585-9ffd-4daa-a7c4-979988c0aecb}</destination>
+		</relationship>
+	</object>
+</objects>

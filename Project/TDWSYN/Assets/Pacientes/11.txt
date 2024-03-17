@@ -1,0 +1,16 @@
+Hola buenas, soy trans y quiero hormonas
+2
+Mandarle a su casa & 0 & 30
+Para eso no vengo & 0
+0
+Hacer una evaluación psicológica & 0 & 60
+Está suficientemente bien para prescribir las hormonas
+2
+Dar hormonas & 1 & 60
+Muchas gracias :) & 1
+0
+Mandarle a su casa & 0 & 30
+Para eso no vengo & 0
+0
+Está mucho más feliz ahora 
+Se suicidó por falta de apoyo tanto social como médico

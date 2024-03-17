@@ -1,0 +1,10 @@
+Hola buenas, necesito una circuncisión 
+2
+Mandarle a su casa & 0 & 30
+Oh, vale & 0
+0
+Operar & 1 & 90
+Gracias, ahora puedo tener hijos & 1
+0
+El paciente ya puede tener hijos
+El paciente no pudo tener hijos

@@ -1,12 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -18,16 +14,16 @@ public class GameManager : MonoBehaviour
     private const int H_INI = 540; //9 a.m.
     private const int H_FIN = 13*60; //1 p.m.
 
-    public const int RED_LIMIT = 2;
+    public const int RED_LIMIT = 3;
     public const int YELLOW_LIMIT = 4;
     [SerializeField]
-    private string[] niveles;
+    public string[] lvls;
     private Paciente[] pacientes;
     private Paciente paciente_actual;
     private int nivel_actual = 0;
     private int n_paciente = 0;
     public int nivel_jugador = 0;
-    private string[] endings;
+    public string[] endings;
     public static GameManager Instance { get; private set; }
     [SerializeField]
     private GameObject PauseCanvas;
@@ -43,6 +39,25 @@ public class GameManager : MonoBehaviour
     private TMP_Text lvl_cnt;
     private TMP_Text patients_cnt;
     private Image bck_cnt;
+    [SerializeField]
+    private GameObject canvas_rendimiento;
+    [SerializeField]
+    private GameObject canvas_despido;
+    private bool[] good_ending;
+
+    private TMP_Text pacientes_atendidos;
+    private TMP_Text pacientes_con_quejas;
+    private Image lvl_down;
+    private Image lvl_up;
+    private Image lvl_stay;
+    [SerializeField]
+    private Sprite chk;
+    [SerializeField]
+    private Sprite unchk;
+    public string[] niveles;
+
+    private TMP_Text[] opiniones = new TMP_Text[7];
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -54,8 +69,20 @@ public class GameManager : MonoBehaviour
         }
     }
     void Start(){
+        niveles = new string[lvls.Length];
+        for(int i = 0; i < lvls.Length; i++){
+            niveles[i] = ".\\Assets\\Pacientes\\" + lvls[i] + ".txt";
+        }
         MainCanvas = GameObject.Find("GameCanvas");
 
+        for(int i = 0; i < 7; i++){
+            opiniones[i] = GameObject.Find("CanvasRendimiento/Papel2/T" + (i+1).ToString()).GetComponent<TMP_Text>();
+        }
+        lvl_up = GameObject.Find("CanvasRendimiento/Papel1/Checkbox (2)").GetComponent<Image>();
+        lvl_down = GameObject.Find("CanvasRendimiento/Papel1/Checkbox").GetComponent<Image>();
+        lvl_stay = GameObject.Find("CanvasRendimiento/Papel1/Checkbox (1)").GetComponent<Image>();
+        pacientes_atendidos = GameObject.Find("CanvasRendimiento/Papel1/nPacientes").GetComponent<TMP_Text>();
+        pacientes_con_quejas = GameObject.Find("CanvasRendimiento/Papel1/nPacientes (1)").GetComponent<TMP_Text>();
         lvl_cnt = GameObject.Find("GameCanvas/Contador/Nivel").GetComponent<TMP_Text>();
         patients_cnt = GameObject.Find("GameCanvas/Contador/Pacientes").GetComponentInChildren<TMP_Text>();
         bck_cnt = GameObject.Find("GameCanvas/Contador/Pacientes").GetComponentInChildren<Image>();
@@ -83,10 +110,11 @@ public class GameManager : MonoBehaviour
 
 
         if(n_paciente == pacientes.Length || time >= H_FIN){
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.EndDay, this.transform.position);
             EndLvl();
             return;
         }
-
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Door, this.transform.position);
         paciente_actual = pacientes[n_paciente];
         n_paciente++;
         paciente_rer.sprite = sprites[rnd.Next(sprites.Length)];
@@ -102,6 +130,7 @@ public class GameManager : MonoBehaviour
             pacientes_terminados++;
             changePatiensCount(pacientes_terminados);
             this.endings[n_paciente-1] = this.paciente_actual.getEnding();
+            this.good_ending[n_paciente-1] = this.paciente_actual.isGoodEnding();
             SiguientePaciente();
             return;
         }
@@ -112,38 +141,70 @@ public class GameManager : MonoBehaviour
         paciente.SetActive(false);
         Debug.Log("Nivel terminado\n");
         if(pacientes_terminados < RED_LIMIT){
-            if(nivel_jugador == 0){
-                TerminaJuego();
-            }else{
-                nivel_jugador--;
-            }
+            nivel_jugador--;
         }else if(pacientes_terminados >= YELLOW_LIMIT){
             nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
         }
-        Debug.Log(endings);
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Paper, this.transform.position);
         changeLvlCount(nivel_jugador);
         nivel_actual++;
-        CargaNivel();
+        Rendimiento();
     }
 
-    void CargaNivel(){
-        if(this.nivel_actual >= this.niveles.Length){
+    private void Rendimiento(){
+        pacientes_atendidos.text = pacientes_terminados.ToString();
+        int n_quejas = 0;
+        for(int i = 0; i < good_ending.Length; i++){
+            if(!good_ending[i]) n_quejas++;
+        }
+        pacientes_con_quejas.text = n_quejas.ToString();
+        lvl_up.sprite = unchk;
+        lvl_stay.sprite = unchk;
+        lvl_down.sprite = unchk;
+        if(pacientes_terminados < RED_LIMIT){
+            lvl_down.sprite = chk;
+        }else if(pacientes_terminados < YELLOW_LIMIT){
+            lvl_stay.sprite = chk;
+        }else{
+            lvl_up.sprite = chk;
+        }
+        for(int i = 0; i < 7; i++){
+            opiniones[i].text = "";
+            opiniones[i].color = Color.black;
+            opiniones[i].fontStyle = FontStyles.Normal;
+        }
+        for(int i = 0; i<endings.Length; i++){
+            if(!good_ending[i]){
+                opiniones[i].color = Color.red;
+                opiniones[i].fontStyle = FontStyles.Strikethrough;
+            }
+            opiniones[i].text = endings[i];
+
+        }
+        canvas_rendimiento.SetActive(true);
+    }
+
+    public void CargaNivel(){
+        if(this.nivel_actual >= this.niveles.Length || nivel_jugador < 0){
             TerminaJuego();
             return;
         }
         StreamReader reader = new StreamReader(niveles[nivel_actual]);
         int p = int.Parse(reader.ReadLine());
         endings = new string[p];
+        good_ending = new bool[p];
         pacientes = new Paciente[p];
         for(int i = 0; i < p; i++){
             pacientes[i] = new Paciente(reader.ReadLine());
         }
         reader.Close();
+        canvas_rendimiento.SetActive(false);
         StartLvl();
     }
 
 
     public void Pause(){
+        if(canvas_rendimiento.activeSelf) return;
         if(Time.timeScale != 0){
             Time.timeScale = 0;
             PauseCanvas.SetActive(true);
@@ -161,9 +222,20 @@ public class GameManager : MonoBehaviour
         Clock.text = h.ToString("D2") + ":" + m.ToString("D2");
     }
 
-    public void TerminaJuego(){
+    public void TerminaJuego(){ //Se llama al terminar el juego, ya sea por una cosa o por la otra
         Debug.Log("Termino el juego\n");
-        Quit();
+        MainCanvas.SetActive(true);
+        paciente.SetActive(true);
+        PauseCanvas.SetActive(false);
+        if(nivel_jugador < 0){
+            canvas_despido.SetActive(true);
+        }else{
+            gameOver();   
+        }
+    }
+
+    public void gameOver(){
+        SceneManager.LoadScene("GameOver");
     }
     public void Quit(){
         MainCanvas.SetActive(true);
