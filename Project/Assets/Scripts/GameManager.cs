@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -38,7 +39,9 @@ public class GameManager : MonoBehaviour
     private GameObject paciente;
     private SpriteRenderer paciente_rer;
     private int pacientes_terminados;
-    private Contador tray;
+    private TMP_Text lvl_cnt;
+    private TMP_Text patients_cnt;
+    private Image bck_cnt;
 
     // Start is called before the first frame update
     void Awake()
@@ -52,14 +55,16 @@ public class GameManager : MonoBehaviour
     void Start(){
         MainCanvas = GameObject.Find("GameCanvas");
 
-        tray = MainCanvas.GetComponentInChildren<Contador>();
-        tray.changeLvl(nivel_jugador);
+        lvl_cnt = GameObject.Find("GameCanvas/Contador/Nivel").GetComponent<TMP_Text>();
+        patients_cnt = GameObject.Find("GameCanvas/Contador/Pacientes").GetComponentInChildren<TMP_Text>();
+        bck_cnt = GameObject.Find("GameCanvas/Contador/Pacientes").GetComponentInChildren<Image>();
         rnd = new System.Random();
         conv = MainCanvas.GetComponentInChildren<ConversationGenerator>();
         Clock = GameObject.Find("GameCanvas/Clock/Time").GetComponent<TMP_Text>();
         paciente = GameObject.Find("Patient");
         paciente.SetActive(false);
         paciente_rer = paciente.GetComponent<SpriteRenderer>();
+        changeLvlCount(nivel_jugador);
         UpdateTime();
         CargaNivel();
     }
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour
     void StartLvl(){
         n_paciente = 0;
         pacientes_terminados = 0;
+        changePatiensCount(pacientes_terminados);
         time = H_INI;
         UpdateTime();
         paciente.SetActive(true);
@@ -93,7 +99,7 @@ public class GameManager : MonoBehaviour
         paciente_actual.selectAnswer(n);
         if(paciente_actual.hasEnded()){
             pacientes_terminados++;
-            tray.changePatiens(pacientes_terminados);
+            changePatiensCount(pacientes_terminados);
             SiguientePaciente();
             return;
         }
@@ -112,7 +118,7 @@ public class GameManager : MonoBehaviour
         }else if(pacientes_terminados >= YELLOW_LIMIT){
             nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
         }
-        tray.changeLvl(nivel_jugador);
+        changeLvlCount(nivel_jugador);
         nivel_actual++;
         CargaNivel();
     }
@@ -153,7 +159,26 @@ public class GameManager : MonoBehaviour
 
     public void TerminaJuego(){
         Debug.Log("Termino el juego\n");
+        Quit();
+    }
+    public void Quit(){
+        MainCanvas.SetActive(true);
+        paciente.SetActive(true);
+        PauseCanvas.SetActive(false);
         SceneManager.LoadScene("MainMenu");
-        
+    }
+
+    public void changePatiensCount(int n){
+        patients_cnt.text = n.ToString();
+        if(n < GameManager.RED_LIMIT){
+            bck_cnt.color = Color.red;
+        }else if(n < GameManager.YELLOW_LIMIT){
+            bck_cnt.color = Color.yellow;
+        }else{
+            bck_cnt.color = Color.green;
+        }
+    }
+    public void changeLvlCount(int n){
+        lvl_cnt.text = n.ToString();
     }
 }
