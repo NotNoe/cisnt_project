@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
     private Image bck_cnt;
     [SerializeField]
     private GameObject canvas_rendimiento;
+    [SerializeField]
+    private GameObject canvas_despido;
 
     // Start is called before the first frame update
     void Awake()
@@ -167,9 +169,19 @@ public class GameManager : MonoBehaviour
         Clock.text = h.ToString("D2") + ":" + m.ToString("D2");
     }
 
+
+    private void fired(){
+        MainCanvas.SetActive(true);
+        paciente.SetActive(true);
+        PauseCanvas.SetActive(false);
+        canvas_despido.SetActive(true);
+    }
     public void TerminaJuego(){
         Debug.Log("Termino el juego\n");
-        Quit();
+        MainCanvas.SetActive(true);
+        paciente.SetActive(true);
+        PauseCanvas.SetActive(false);
+        SceneManager.LoadScene("GameOver");
     }
     public void Quit(){
         MainCanvas.SetActive(true);

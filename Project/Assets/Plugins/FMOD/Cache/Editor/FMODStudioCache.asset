@@ -154,7 +154,11 @@ MonoBehaviour:
   - {fileID: 2216583751055984857}
   StringsBanks:
   - {fileID: 5344832657255037550}
+<<<<<<< Updated upstream
   cacheTime: 638462941161932210
+=======
+  cacheTime: 638462936332949936
+>>>>>>> Stashed changes
   cacheVersion: 131616
 --- !u!114 &239465099485849466
 MonoBehaviour:
@@ -218,7 +222,11 @@ MonoBehaviour:
   Path: Assets/SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 638462941161922193
+=======
+  lastModified: 638462936332939912
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 1125344
@@ -265,7 +273,11 @@ MonoBehaviour:
   Path: Assets/SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 638462941161932210
+=======
+  lastModified: 638462936332949936
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 924
