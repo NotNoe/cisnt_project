@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
     public void MainMenuButton(){
-        SceneManager.LoadScene("MainMenu");
+        GameManager.Instance.Quit();
     }
     public void ResumeButton(){
         GameManager.Instance.Pause();
