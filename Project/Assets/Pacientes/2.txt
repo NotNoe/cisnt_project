@@ -1,18 +1,20 @@
-Hola buenas, me duele la barriga
+Hola, mi barriga me duele muchísimo durante mis reglas, hasta el punto que me he desmayado.
 3
 Mandarle a su casa & 0 & 30
-Para eso no vengo
+O, perdón por hacerte perder el tiempo
 0
-Decirle que es idiota & 3 & 30
-Te voy a demandar
+Pastillas anticonceptivo & 3 & 60
+Vale, gracias supongo 
 0
-Preguntar desde cuando le duele & 0 & 30
-Me duele solo un poco
+Hacer una ecografía & 0 & 120
+Se ha encontrado células creciedno en un sitio inesperado en la parte exterior al útero
 2
-Dar pastillas fuertes & 0 & 30
-Muchas gracias
-0
-Dar pastillas suaves & 0 & 60
-Estas no valen para nada
+Hacer un test para ver si es cáncer & 1 & 60
+No lo es, se ha confirmado que es endiometrosis
+1
+Tratar & 0 & 30
+¡Muchísimas gracias!
+Confiar que no es nada serio & 0 & 15
+Vale, gracias por tu ayuda supongo
 0
 
