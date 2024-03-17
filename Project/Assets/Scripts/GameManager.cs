@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private int nivel_actual = 0;
     private int n_paciente = 0;
     public int nivel_jugador = 0;
+    private string[] endings;
     public static GameManager Instance { get; private set; }
     [SerializeField]
     private GameObject PauseCanvas;
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
         if(paciente_actual.hasEnded()){
             pacientes_terminados++;
             changePatiensCount(pacientes_terminados);
+            this.endings[n_paciente-1] = this.paciente_actual.getEnding();
             SiguientePaciente();
             return;
         }
@@ -118,6 +120,7 @@ public class GameManager : MonoBehaviour
         }else if(pacientes_terminados >= YELLOW_LIMIT){
             nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
         }
+        Debug.Log(endings);
         changeLvlCount(nivel_jugador);
         nivel_actual++;
         CargaNivel();
@@ -130,6 +133,7 @@ public class GameManager : MonoBehaviour
         }
         StreamReader reader = new StreamReader(niveles[nivel_actual]);
         int p = int.Parse(reader.ReadLine());
+        endings = new string[p];
         pacientes = new Paciente[p];
         for(int i = 0; i < p; i++){
             pacientes[i] = new Paciente(reader.ReadLine());
