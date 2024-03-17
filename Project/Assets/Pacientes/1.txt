@@ -5,11 +5,12 @@ Para eso no vengo
 0
 Preguntar sobre la intensidad & 0 & 45
 Es leve el dolor
-1
+2
 Dar pastillas suaves & 0 & 30
+Muchas gracias :)
 0
 Dar pastillas fuertes & 0 & 30
-Muchas gracias
+Gracias, supongo
 0
 Dar pastillas suaves & 0 & 30
 Gracias :)
