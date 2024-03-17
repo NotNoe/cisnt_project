@@ -79,4 +79,7 @@ public class Paciente{
     public string getEnding(){
         return this.is_good_ending ? this.good_ending : this.bad_ending;
     }
+    public bool isGoodEnding(){
+        return this.is_good_ending;
+    }
 }

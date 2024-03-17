@@ -47,6 +47,18 @@ public class GameManager : MonoBehaviour
     private GameObject canvas_rendimiento;
     [SerializeField]
     private GameObject canvas_despido;
+    private bool[] good_ending;
+
+    private TMP_Text pacientes_atendidos;
+    private TMP_Text pacientes_con_quejas;
+    private Image lvl_down;
+    private Image lvl_up;
+    private Image lvl_stay;
+    [SerializeField]
+    private Sprite chk;
+    [SerializeField]
+    private Sprite unchk;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -60,6 +72,12 @@ public class GameManager : MonoBehaviour
     void Start(){
         MainCanvas = GameObject.Find("GameCanvas");
 
+
+        lvl_up = GameObject.Find("CanvasRendimiento/Papel1/Checkbox (2)").GetComponent<Image>();
+        lvl_down = GameObject.Find("CanvasRendimiento/Papel1/Checkbox").GetComponent<Image>();
+        lvl_stay = GameObject.Find("CanvasRendimiento/Papel1/Checkbox (1)").GetComponent<Image>();
+        pacientes_atendidos = GameObject.Find("CanvasRendimiento/Papel1/nPacientes").GetComponent<TMP_Text>();
+        pacientes_con_quejas = GameObject.Find("CanvasRendimiento/Papel1/nPacientes (1)").GetComponent<TMP_Text>();
         lvl_cnt = GameObject.Find("GameCanvas/Contador/Nivel").GetComponent<TMP_Text>();
         patients_cnt = GameObject.Find("GameCanvas/Contador/Pacientes").GetComponentInChildren<TMP_Text>();
         bck_cnt = GameObject.Find("GameCanvas/Contador/Pacientes").GetComponentInChildren<Image>();
@@ -107,6 +125,7 @@ public class GameManager : MonoBehaviour
             pacientes_terminados++;
             changePatiensCount(pacientes_terminados);
             this.endings[n_paciente-1] = this.paciente_actual.getEnding();
+            this.good_ending[n_paciente-1] = this.paciente_actual.isGoodEnding();
             SiguientePaciente();
             return;
         }
@@ -122,9 +141,28 @@ public class GameManager : MonoBehaviour
             nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
         }
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Paper, this.transform.position);
-        Debug.Log(endings);
         changeLvlCount(nivel_jugador);
         nivel_actual++;
+        Rendimiento();
+    }
+
+    private void Rendimiento(){
+        pacientes_atendidos.text = pacientes_terminados.ToString();
+        int n_quejas = 0;
+        for(int i = 0; i < good_ending.Length; i++){
+            if(!good_ending[i]) n_quejas++;
+        }
+        pacientes_con_quejas.text = n_quejas.ToString();
+        lvl_up.sprite = unchk;
+        lvl_stay.sprite = unchk;
+        lvl_down.sprite = unchk;
+        if(pacientes_terminados < RED_LIMIT){
+            lvl_down.sprite = chk;
+        }else if(pacientes_terminados < YELLOW_LIMIT){
+            lvl_stay.sprite = chk;
+        }else{
+            lvl_up.sprite = chk;
+        }
         canvas_rendimiento.SetActive(true);
     }
 
@@ -136,6 +174,7 @@ public class GameManager : MonoBehaviour
         StreamReader reader = new StreamReader(niveles[nivel_actual]);
         int p = int.Parse(reader.ReadLine());
         endings = new string[p];
+        good_ending = new bool[p];
         pacientes = new Paciente[p];
         for(int i = 0; i < p; i++){
             pacientes[i] = new Paciente(reader.ReadLine());
