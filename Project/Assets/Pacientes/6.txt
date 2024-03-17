@@ -1,18 +1,20 @@
-Hola buenas, me duele la barriga
+Hola, creo que alergia a algo
 3
 Mandarle a su casa & 0 & 30
-Para eso no vengo
+Vale, pues nada & 0
 0
-Decirle que es idiota & 3 & 30
-Te voy a demandar
-0
-Preguntar desde cuando le duele & 0 & 30
-Me duele solo un poco
+Hacer un test general de alergia & 0 & 60
+Tiene alergia al polen y a plátano
 2
-Dar pastillas fuertes & 0 & 30
-Muchas gracias
+Mandarle a casa & 0 & 30
+Bueno, gracias supongo & 0
 0
-Dar pastillas suaves & 0 & 60
-Estas no valen para nada
+Dar pastillas específicas de alergia & 0 & 45
+Muchas gracias & 1
 0
+Dar pastillas básicas de alergia & 0 & 45
+Algo es algo & 0
+0
+Las síntomas de alergia son mucho más leves 
+Le sigue molestando bastante  su alergia :(
 

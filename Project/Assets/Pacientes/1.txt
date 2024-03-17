@@ -6,13 +6,13 @@ Para eso no vengo & 0
 Preguntar sobre la intensidad & 0 & 45
 Es leve el dolor
 2
-Dar pastillas suaves & 0 & 30
+Dar pastillas suaves & 0 & 45
 Muchas gracias :) & 1
 0
-Dar pastillas fuertes & 0 & 30
+Dar pastillas fuertes & 0 & 45
 Gracias, supongo & 0
 0
-Dar pastillas suaves & 0 & 30
+Dar pastillas suaves & 0 & 45
 Gracias :) & 1
 0
 Se curó sus problemas de barriga.
