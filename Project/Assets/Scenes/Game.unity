@@ -831,11 +831,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a3e061236773b42bcd3bbeebfbeabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  niveles:
-  - Assets\Pacientes\level1.txt
-  - Assets\Pacientes\level2.txt
-  - Assets\Pacientes\level3.txt
+  lvls:
+  - level1
+  - level2
+  - level3
   nivel_jugador: 0
+  endings: []
   PauseCanvas: {fileID: 2139741954}
   sprites:
   - {fileID: 21300000, guid: f24210d3fc3029f4cb353f446ccf9018, type: 3}
@@ -855,6 +856,7 @@ MonoBehaviour:
   canvas_despido: {fileID: 2009337092}
   chk: {fileID: 21300000, guid: a7f1882354dd2bc4f9e6167d7956a92d, type: 3}
   unchk: {fileID: 21300000, guid: 997ba8e5ab4ca9e46af3474a946facbe, type: 3}
+  niveles: []
 --- !u!4 &1170742194
 Transform:
   m_ObjectHideFlags: 0

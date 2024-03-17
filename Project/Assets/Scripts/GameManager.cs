@@ -1,12 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -21,13 +17,13 @@ public class GameManager : MonoBehaviour
     public const int RED_LIMIT = 3;
     public const int YELLOW_LIMIT = 4;
     [SerializeField]
-    private string[] niveles;
+    public string[] lvls;
     private Paciente[] pacientes;
     private Paciente paciente_actual;
     private int nivel_actual = 0;
     private int n_paciente = 0;
     public int nivel_jugador = 0;
-    private string[] endings;
+    public string[] endings;
     public static GameManager Instance { get; private set; }
     [SerializeField]
     private GameObject PauseCanvas;
@@ -58,6 +54,7 @@ public class GameManager : MonoBehaviour
     private Sprite chk;
     [SerializeField]
     private Sprite unchk;
+    public string[] niveles;
 
     private TMP_Text[] opiniones = new TMP_Text[7];
     
@@ -72,6 +69,10 @@ public class GameManager : MonoBehaviour
         }
     }
     void Start(){
+        niveles = new string[lvls.Length];
+        for(int i = 0; i < lvls.Length; i++){
+            niveles[i] = ".\\Assets\\Pacientes\\" + lvls[i] + ".txt";
+        }
         MainCanvas = GameObject.Find("GameCanvas");
 
         for(int i = 0; i < 7; i++){
