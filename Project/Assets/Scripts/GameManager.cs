@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     private TMP_Text lvl_cnt;
     private TMP_Text patients_cnt;
     private Image bck_cnt;
+    [SerializeField]
+    private GameObject canvas_rendimiento;
 
     // Start is called before the first frame update
     void Awake()
@@ -123,10 +125,10 @@ public class GameManager : MonoBehaviour
         Debug.Log(endings);
         changeLvlCount(nivel_jugador);
         nivel_actual++;
-        CargaNivel();
+        canvas_rendimiento.SetActive(true);
     }
 
-    void CargaNivel(){
+    public void CargaNivel(){
         if(this.nivel_actual >= this.niveles.Length){
             TerminaJuego();
             return;
@@ -139,11 +141,13 @@ public class GameManager : MonoBehaviour
             pacientes[i] = new Paciente(reader.ReadLine());
         }
         reader.Close();
+        canvas_rendimiento.SetActive(false);
         StartLvl();
     }
 
 
     public void Pause(){
+        if(canvas_rendimiento.activeSelf) return;
         if(Time.timeScale != 0){
             Time.timeScale = 0;
             PauseCanvas.SetActive(true);
