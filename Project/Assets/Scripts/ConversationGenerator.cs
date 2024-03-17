@@ -64,7 +64,8 @@ public class ConversationGenerator : MonoBehaviour
         }
         for(int i = 0; i < treatments.Length; i++)
         {
-            options[i].text = treatments[i] + "\n" + time[i] + " minutes" + "\n" + level[i];
+            options[i].text = treatments[i] + "\n" + time[i] + " minutos" + "\n";
+            if(level[i] != 0) options[i].text += level[i];
             buttons[i].SetActive(true);
             if (level[i] > GameManager.Instance.nivel_jugador)
             {
