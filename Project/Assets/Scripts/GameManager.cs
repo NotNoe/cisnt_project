@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private const int MAXLVL = 3;
     private const int H_INI = 540; //9 a.m.
-    private const int H_FIN = 1020; //5 p.m.
+    private const int H_FIN = 13*60; //1 p.m.
 
     public const int RED_LIMIT = 2;
     public const int YELLOW_LIMIT = 4;
