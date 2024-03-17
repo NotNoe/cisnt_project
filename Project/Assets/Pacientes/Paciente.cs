@@ -26,7 +26,7 @@ public class Paciente{
         int n = int.Parse(reader.ReadLine());
         if(n == 0){
             salida = new DialogTree(aux1.Split("&")[0]);
-            if(aux1.Split("&")[1] == "0") salida.good_ending = false;
+            if(aux1.Split("&")[1].Equals(" 0")) salida.good_ending = false;
             else salida.good_ending = true;
             salida.init_arrays(1);
             salida.respuestas[0] = "Siguiente paciente";
@@ -34,7 +34,8 @@ public class Paciente{
             salida.tiempo[0] = 0;
             salida.hijos[0] = new DialogTree("")
             {
-                good_ending = salida.good_ending
+                good_ending = salida.good_ending,
+                n = 0
             };
             salida.n = 1;
         }else{

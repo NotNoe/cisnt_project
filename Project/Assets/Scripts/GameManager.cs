@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
     private Sprite chk;
     [SerializeField]
     private Sprite unchk;
+
+    private TMP_Text[] opiniones = new TMP_Text[7];
     
 
     // Start is called before the first frame update
@@ -72,7 +74,9 @@ public class GameManager : MonoBehaviour
     void Start(){
         MainCanvas = GameObject.Find("GameCanvas");
 
-
+        for(int i = 0; i < 7; i++){
+            opiniones[i] = GameObject.Find("CanvasRendimiento/Papel2/T" + (i+1).ToString()).GetComponent<TMP_Text>();
+        }
         lvl_up = GameObject.Find("CanvasRendimiento/Papel1/Checkbox (2)").GetComponent<Image>();
         lvl_down = GameObject.Find("CanvasRendimiento/Papel1/Checkbox").GetComponent<Image>();
         lvl_stay = GameObject.Find("CanvasRendimiento/Papel1/Checkbox (1)").GetComponent<Image>();
@@ -162,6 +166,19 @@ public class GameManager : MonoBehaviour
             lvl_stay.sprite = chk;
         }else{
             lvl_up.sprite = chk;
+        }
+        for(int i = 0; i < 7; i++){
+            opiniones[i].text = "";
+            opiniones[i].color = Color.black;
+            opiniones[i].fontStyle = FontStyles.Normal;
+        }
+        for(int i = 0; i<endings.Length; i++){
+            if(!good_ending[i]){
+                opiniones[i].color = Color.red;
+                opiniones[i].fontStyle = FontStyles.Strikethrough;
+            }
+            opiniones[i].text = endings[i];
+
         }
         canvas_rendimiento.SetActive(true);
     }
