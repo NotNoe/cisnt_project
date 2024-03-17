@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ConversationGenerator : MonoBehaviour
 {
+    
     private TMP_Text _dialog;
     private TMP_Text option1;
     private TMP_Text option2;
@@ -43,14 +44,13 @@ public class ConversationGenerator : MonoBehaviour
         options[1] = option2;
         options[2] = option3;
         options[3] = option4;
-        
 
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+
     }
     public void ChangeDialog(string dialog)
     {
@@ -60,10 +60,11 @@ public class ConversationGenerator : MonoBehaviour
     {
         for(int i = 0; i < 4; i++){
             buttons[i].SetActive(false);
+            buttons[i].GetComponent<Button>().interactable = true;
         }
         for(int i = 0; i < treatments.Length; i++)
         {
-            options[i].text = treatments[i] + "          " + time[i] + " minutes" + "             " + level[i];
+            options[i].text = treatments[i] + "\n" + time[i] + " minutes" + "\n" + level[i];
             buttons[i].SetActive(true);
             if (level[i] > GameManager.Instance.nivel_jugador)
             {

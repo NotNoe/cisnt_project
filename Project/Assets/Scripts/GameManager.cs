@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     }
     void Start(){
         MainCanvas = GameObject.Find("GameCanvas");
+
         rnd = new System.Random();
         conv = MainCanvas.GetComponentInChildren<ConversationGenerator>();
         Clock = GameObject.Find("GameCanvas/Clock/Time").GetComponent<TMP_Text>();
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
         paciente_rer = paciente.GetComponent<SpriteRenderer>();
         UpdateTime();
         CargaNivel();
+        Debug.Log(niveles[0]);
     }
 
     void StartLvl(){
@@ -61,10 +63,12 @@ public class GameManager : MonoBehaviour
         SiguientePaciente();
     }
     private void SiguientePaciente(){ //Llama al siguiente y lo inicia
+
         if(n_paciente == pacientes.Length || time >= H_FIN){
             EndLvl();
             return;
         }
+
         paciente_actual = pacientes[n_paciente];
         n_paciente++;
         paciente_rer.sprite = sprites[rnd.Next(sprites.Length)];
@@ -127,5 +131,6 @@ public class GameManager : MonoBehaviour
     public void TerminaJuego(){
         Debug.Log("Termino el juego\n");
         SceneManager.LoadScene("MainMenu");
+        
     }
 }
