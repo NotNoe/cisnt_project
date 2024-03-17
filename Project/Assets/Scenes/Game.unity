@@ -326,11 +326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4018030247213390647, guid: a5583bd4cee4b6b4f93b0612516154cb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -418
+      value: -302
       objectReference: {fileID: 0}
     - target: {fileID: 4018030247213390647, guid: a5583bd4cee4b6b4f93b0612516154cb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 215
+      value: 182
       objectReference: {fileID: 0}
     - target: {fileID: 4018030247213390647, guid: a5583bd4cee4b6b4f93b0612516154cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -716,11 +716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871003494907754862, guid: 845dcc9fa78675f418693b9e0b04b10a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 550.5
+      value: 443
       objectReference: {fileID: 0}
     - target: {fileID: 1871003494907754862, guid: 845dcc9fa78675f418693b9e0b04b10a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 257
+      value: 231
       objectReference: {fileID: 0}
     - target: {fileID: 1871003494907754862, guid: 845dcc9fa78675f418693b9e0b04b10a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -834,6 +834,7 @@ MonoBehaviour:
   niveles:
   - Assets\Pacientes\level1.txt
   - Assets\Pacientes\level2.txt
+  - Assets\Pacientes\level3.txt
   nivel_jugador: 0
   PauseCanvas: {fileID: 2139741954}
   sprites:
@@ -846,8 +847,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ffe423d7be899a4ebb88a8b17c3076f, type: 3}
   - {fileID: 21300000, guid: 83d7cf0e523e216469d6ca60f3b7b19a, type: 3}
   - {fileID: 21300000, guid: bd14b7139bd3f8b419b3fd1b96693fa9, type: 3}
+  - {fileID: 21300000, guid: f5944f3408bfc1d458fbb6e34f53fc87, type: 3}
+  - {fileID: 21300000, guid: e8626e396855cad4dbc3ec6868f6b47a, type: 3}
+  - {fileID: 21300000, guid: 1445623eccf7ee346b013e0c61268c78, type: 3}
+  - {fileID: 21300000, guid: ad2e7f8c0f562f24abc7275f3aac58a4, type: 3}
   canvas_rendimiento: {fileID: 878925518}
   canvas_despido: {fileID: 2009337092}
+  chk: {fileID: 21300000, guid: a7f1882354dd2bc4f9e6167d7956a92d, type: 3}
+  unchk: {fileID: 21300000, guid: 997ba8e5ab4ca9e46af3474a946facbe, type: 3}
 --- !u!4 &1170742194
 Transform:
   m_ObjectHideFlags: 0
@@ -1291,11 +1298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 290912506286341563, guid: 35cd39036cf27e74d8ec6b1ca28fc559, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 468
+      value: 366
       objectReference: {fileID: 0}
     - target: {fileID: 290912506286341563, guid: 35cd39036cf27e74d8ec6b1ca28fc559, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 213
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 290912506286341563, guid: 35cd39036cf27e74d8ec6b1ca28fc559, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2377,7 +2384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919605976843319745, guid: 6101c11e771e7664f8db7555aa6a6db1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

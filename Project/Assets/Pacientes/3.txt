@@ -15,7 +15,7 @@ Son muy graves, normalmente no puedo hacer nada cuando los tengo
 Dar pastillas normales de migraña & 0 & 45
 Gracias  & 0
 0
-Dar pastillas fuerte de migraña & 1 & 45
+Dar pastillas fuerte de migraña & 0 & 60
 ¡Muchísimas gracias!  & 1
 0
 Dar pastillas normales de migraña & 0 & 45

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private const int H_INI = 540; //9 a.m.
     private const int H_FIN = 13*60; //1 p.m.
 
-    public const int RED_LIMIT = 2;
+    public const int RED_LIMIT = 3;
     public const int YELLOW_LIMIT = 4;
     [SerializeField]
     private string[] niveles;

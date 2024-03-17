@@ -1,0 +1,4 @@
+3
+Assets\Pacientes\11.txt
+Assets\Pacientes\12.txt
+Assets\Pacientes\13.txt

@@ -1,2 +1,7 @@
-1
-Assets\Pacientes\1.txt
+5
+Assets\Pacientes\4.txt
+Assets\Pacientes\2.txt
+Assets\Pacientes\9.txt
+Assets\Pacientes\10.txt
+Assets\Pacientes\5.txt
+
