@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{93a197b2-7efe-4434-87bd-34ad0ab711ab}">
+		<property name="assetPath">
+			<value>folding-paper-34965.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>46.799999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09b585-9ffd-4daa-a7c4-979988c0aecb}</destination>
+		</relationship>
+	</object>
+</objects>
