@@ -6,7 +6,7 @@ Perd�n por molestar  & 0
 Hacer un TAC & 1 & 90
 Hay un tumor, no se sabe si es cancer�geno
 2
-Darle pastilla de dolor de cabeza & 0 & 30
+Darle pastilla de dolor de cabeza & 0 & 45
 Gracias, supongo  & 0
 0
 Confirmar si es cancer�geno & 1 & 60
