@@ -85,10 +85,11 @@ public class GameManager : MonoBehaviour
 
 
         if(n_paciente == pacientes.Length || time >= H_FIN){
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.EndDay, this.transform.position);
             EndLvl();
             return;
         }
-
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Door, this.transform.position);
         paciente_actual = pacientes[n_paciente];
         n_paciente++;
         paciente_rer.sprite = sprites[rnd.Next(sprites.Length)];
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         }else if(pacientes_terminados >= YELLOW_LIMIT){
             nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
         }
+        AudioManager.Instance.PlayOneShot(FMODEvents.Instance.Paper, this.transform.position);
         Debug.Log(endings);
         changeLvlCount(nivel_jugador);
         nivel_actual++;

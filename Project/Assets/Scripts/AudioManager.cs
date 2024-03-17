@@ -17,6 +17,11 @@ public class AudioManager : MonoBehaviour
         }
         else Destroy(gameObject);
     }
+    private void Start()
+    {
+        InitializeMusic(FMODEvents.Instance.Music);
+    }
+    private EventInstance musicEventInstance;
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
@@ -25,6 +30,11 @@ public class AudioManager : MonoBehaviour
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         return eventInstance;
+    }
+    private void InitializeMusic(EventReference musicEventReference)
+    {
+        musicEventInstance = CreateInstance(musicEventReference);
+        musicEventInstance.start();
     }
 }
 

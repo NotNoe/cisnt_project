@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8982701371568472501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/EndDay
+  m_EditorClassIdentifier: 
+  Path: event:/EndDay
+  Guid:
+    Data1: -1939186614
+    Data2: 1264805279
+    Data3: 57195196
+    Data4: 1593858477
+  Banks:
+  - {fileID: 2216583751055984857}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3173
 --- !u!114 &-6952537593070306665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3500
+--- !u!114 &-638068822380126199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Paper
+  m_EditorClassIdentifier: 
+  Path: event:/Paper
+  Guid:
+    Data1: 1969757981
+    Data2: 1242163578
+    Data3: -1371100242
+    Data4: -891461869
+  Banks:
+  - {fileID: 2216583751055984857}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,12 +147,14 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -4253030494991316690}
   - {fileID: 3778057161668243061}
+  - {fileID: -638068822380126199}
+  - {fileID: -8982701371568472501}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2216583751055984857}
   StringsBanks:
   - {fileID: 5344832657255037550}
-  cacheTime: 638462915985367560
+  cacheTime: 638462931302799347
   cacheVersion: 131616
 --- !u!114 &239465099485849466
 MonoBehaviour:
@@ -162,10 +218,10 @@ MonoBehaviour:
   Path: Assets/SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638462915985271344
+  lastModified: 638462931302773736
   FileSizes:
   - Name: Desktop
-    Value: 532992
+    Value: 1125344
   Exists: 1
 --- !u!114 &3778057161668243061
 MonoBehaviour:
@@ -209,10 +265,10 @@ MonoBehaviour:
   Path: Assets/SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638462915985297387
+  lastModified: 638462931302799347
   FileSizes:
   - Name: Desktop
-    Value: 852
+    Value: 924
   Exists: 1
 --- !u!114 &6214914460748454418
 MonoBehaviour:
