@@ -848,6 +848,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bd14b7139bd3f8b419b3fd1b96693fa9, type: 3}
   canvas_rendimiento: {fileID: 878925518}
   canvas_despido: {fileID: 2009337092}
+  chk: {fileID: 0}
+  unchk: {fileID: 0}
 --- !u!4 &1170742194
 Transform:
   m_ObjectHideFlags: 0
@@ -2377,7 +2379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919605976843319745, guid: 6101c11e771e7664f8db7555aa6a6db1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
