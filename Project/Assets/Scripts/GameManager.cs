@@ -12,8 +12,13 @@ public class GameManager : MonoBehaviour
 {
 
     private System.Random rnd;
+
+    private const int MAXLVL = 3;
     private const int H_INI = 540; //9 a.m.
     private const int H_FIN = 1020; //5 p.m.
+
+    public const int RED_LIMIT = 2;
+    public const int YELLOW_LIMIT = 4;
     [SerializeField]
     private string[] niveles;
     private Paciente[] pacientes;
@@ -32,6 +37,8 @@ public class GameManager : MonoBehaviour
     private Sprite[] sprites;
     private GameObject paciente;
     private SpriteRenderer paciente_rer;
+    private int pacientes_terminados;
+    private Contador tray;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +52,8 @@ public class GameManager : MonoBehaviour
     void Start(){
         MainCanvas = GameObject.Find("GameCanvas");
 
+        tray = MainCanvas.GetComponentInChildren<Contador>();
+        tray.changeLvl(nivel_jugador);
         rnd = new System.Random();
         conv = MainCanvas.GetComponentInChildren<ConversationGenerator>();
         Clock = GameObject.Find("GameCanvas/Clock/Time").GetComponent<TMP_Text>();
@@ -53,17 +62,18 @@ public class GameManager : MonoBehaviour
         paciente_rer = paciente.GetComponent<SpriteRenderer>();
         UpdateTime();
         CargaNivel();
-        Debug.Log(niveles[0]);
     }
 
     void StartLvl(){
         n_paciente = 0;
+        pacientes_terminados = 0;
         time = H_INI;
         UpdateTime();
         paciente.SetActive(true);
         SiguientePaciente();
     }
     private void SiguientePaciente(){ //Llama al siguiente y lo inicia
+
 
         if(n_paciente == pacientes.Length || time >= H_FIN){
             EndLvl();
@@ -82,6 +92,8 @@ public class GameManager : MonoBehaviour
         UpdateTime();
         paciente_actual.selectAnswer(n);
         if(paciente_actual.hasEnded()){
+            pacientes_terminados++;
+            tray.changePatiens(pacientes_terminados);
             SiguientePaciente();
             return;
         }
@@ -91,6 +103,16 @@ public class GameManager : MonoBehaviour
     void EndLvl(){
         paciente.SetActive(false);
         Debug.Log("Nivel terminado\n");
+        if(pacientes_terminados < RED_LIMIT){
+            if(nivel_jugador == 0){
+                TerminaJuego();
+            }else{
+                nivel_jugador--;
+            }
+        }else if(pacientes_terminados >= YELLOW_LIMIT){
+            nivel_jugador = Math.Min(MAXLVL, nivel_jugador + 1);
+        }
+        tray.changeLvl(nivel_jugador);
         nivel_actual++;
         CargaNivel();
     }
