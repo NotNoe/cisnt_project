@@ -4,17 +4,17 @@ Mandarle a su casa & 0 & 30
 Vale, pues nada & 0
 0
 Hacer un test general de alergia & 0 & 60
-Tiene alergia al polen y a pl·tano
+Tiene alergia al polen y a pl√°tano
 2
 Mandarle a casa & 0 & 30
 Bueno, gracias supongo & 0
 0
-Dar pastillas especÌficas de alergia & 0 & 45
+Dar pastillas espec√≠ficas de alergia & 0 & 45
 Muchas gracias & 1
 0
-Dar pastillas b·sicas de alergia & 0 & 45
+Dar pastillas b√°sicas de alergia & 0 & 45
 Algo es algo & 0
 0
-Las sÌntomas de alergia son mucho m·s leves 
+Las s√≠ntomas de alergia son mucho m√°s leves 
 Le sigue molestando bastante  su alergia :(
 

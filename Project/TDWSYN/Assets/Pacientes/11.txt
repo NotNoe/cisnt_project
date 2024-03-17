@@ -3,8 +3,8 @@ Hola buenas, soy trans y quiero hormonas
 Mandarle a su casa & 0 & 30
 Para eso no vengo & 0
 0
-Hacer una evaluaciÛn psicolÛgica & 0 & 60
-Est· suficientemente bien para prescribir las hormonas
+Hacer una evaluaci√≥n psicol√≥gica & 0 & 60
+Est√° suficientemente bien para prescribir las hormonas
 2
 Dar hormonas & 1 & 60
 Muchas gracias :) & 1
@@ -12,5 +12,5 @@ Muchas gracias :) & 1
 Mandarle a su casa & 0 & 30
 Para eso no vengo & 0
 0
-Est· mucho m·s feliz ahora 
-Se suicidÛ por falta de apoyo tanto social como mÈdico
+Est√° mucho m√°s feliz ahora 
+Se suicid√≥ por falta de apoyo tanto social como m√©dico

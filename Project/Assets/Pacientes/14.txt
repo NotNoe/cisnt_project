@@ -1,7 +1,7 @@
 Hola, no puedo gestionar la cantidad de ansiedad que tengo
 3
 Mandarle a su casa & 0 & 30
-Oh, vale, perdón por molestar & 0
+Oh, vale, perdÃ³n por molestar & 0
 0
 Mandar a terapia & 1 & 60
 Muchas gracias :) & 1
@@ -9,5 +9,5 @@ Muchas gracias :) & 1
 Recomendar clases de Yoga & 0 & 45
 Gracias, supongo & 0
 0
-El paciente aprende cada vez más cómo gestionar sus emociones
-El paciente se agobió mucho en su día a día y ahora no sale de casa
+El paciente aprende cada vez mÃ¡s cÃ³mo gestionar sus emociones
+El paciente se agobiÃ³ mucho en su dÃ­a a dÃ­a y ahora no sale de casa

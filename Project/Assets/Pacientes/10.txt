@@ -1,4 +1,4 @@
-Hola buenas, necesito una circuncisión 
+Hola buenas, necesito una circuncisiÃ³n 
 2
 Mandarle a su casa & 0 & 30
 Oh, vale & 0
@@ -7,4 +7,4 @@ Operar & 1 & 90
 Gracias, ahora puedo tener hijos & 1
 0
 El paciente ya puede tener hijos
-El paciente se quedó infértil
+El paciente no pudo tener hijos

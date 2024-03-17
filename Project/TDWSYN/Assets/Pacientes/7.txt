@@ -6,8 +6,8 @@ Para eso no vengo & 0
 Darle un inhalador & 0 & 45
 Gracias & 1
 0
-Hacer un test de mediciÛn de capacidad pulmonar & 0 & 60
-Tiene sÌntomas de asma
+Hacer un test de medici√≥n de capacidad pulmonar & 0 & 60
+Tiene s√≠ntomas de asma
 2
 Mandarle a su casa & 0 & 30
 Vale, gracias supongo & 0
@@ -15,6 +15,6 @@ Vale, gracias supongo & 0
 Dar un inhalador & 0 & 45
 Gracias & 1
 0
-Gestiona mucho mejor sus sÌntomas gracias al inhalador
-MuriÛ de un ataque asm·tico
+Gestiona mucho mejor sus s√≠ntomas gracias al inhalador
+Muri√≥ de un ataque asm√°tico
 

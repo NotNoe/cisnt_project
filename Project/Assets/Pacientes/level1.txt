@@ -1,6 +1,6 @@
 5
 Assets\Pacientes\1.txt
-Assets\Pacientes\3.txt
 Assets\Pacientes\6.txt
+Assets\Pacientes\3.txt
 Assets\Pacientes\7.txt
 Assets\Pacientes\8.txt
