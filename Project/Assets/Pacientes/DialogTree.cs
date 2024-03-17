@@ -8,6 +8,8 @@ public class DialogTree{
     public int[] limitaciones;
     public int[] tiempo;
 
+    public bool good_ending;
+
 
     public DialogTree(string pregunta){
         this.pregunta = pregunta;
